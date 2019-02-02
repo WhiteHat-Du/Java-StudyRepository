@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 配置工厂Bean，该Bean负责产生其他Bean实例 -->
+	<bean id="personFactory" class="org.app.factory.PersonFactory"/>
+	<!-- 下面配置驱动Spring调用personFactory Bean的getPerson()方法来创建Bean -->
+	<bean id="chinese" factory-bean="personFactory"
+		factory-method="getPerson">
+		<!-- 配置实例工厂方法的参数 -->
+		<constructor-arg value="chinese"/>
+	</bean>
+	<bean id="american" factory-bean="personFactory"
+		factory-method="getPerson">
+		<constructor-arg value="american"/>
+	</bean>
+</beans>

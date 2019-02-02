@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- 配置数据库相关 - 事务 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+		<property name="url" value="127.0.0.1:1521:ORCL"></property>
+		<property name="username" value="dnx"></property>
+		<property name="password" value="123456"></property>
+		<property name="maxActive" value="10"></property>
+		<property name="maxIdle" value="6"></property>
+	</bean>
+	<!-- 配置事务管理器txManager -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+
+	</bean>
+	<!-- 增加对事务的支持 -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+	
+	
+	
+	
+	<!-- 该文件中产生的所有对象，被Spring放入了一个称之为Spring IOC容器的地方 -->
+	<!-- Spring IOC容器：创建对象，给对象的属性赋值 -->
+	<!-- id：唯一标识符 class：指定类型 -->
+	<bean id="student" class="org.spring.entity.Student" p:stuAge="24">
+	<!-- property:该class所代表的类的属性
+		 name：属性名
+		 value：属性值	
+	 -->
+		<property name="stuNo" value="2"></property>
+		<property name="stuName">
+			<null/>
+		</property>
+	</bean>
+
+	<bean id="teacher" class="org.spring.entity.Teacher">
+	<!-- 
+		通过set方法赋值
+		<property name="name" value="张三"></property>
+		<property name="age" value="25"></property>
+	-->
+	<!-- 通过构造方法赋值 -->
+		<constructor-arg value="张三"></constructor-arg>
+		<constructor-arg value="25"></constructor-arg>
+	</bean>
+	
+	<!-- 
+		使用自动装配设置teacher值 ,autowire="byName":
+		Course类中有一个ref属性teacher（属性名），并且IOC容器中恰好有一个bean的id也是teacher。
+	-->
+	<bean id="course" class="org.spring.entity.Course" autowire="byName">
+	<!-- 
+		xxx.setCourseName("java")
+		<property name="courseName" value="Java"></property>
+		<property name="courseHour" value="200"></property>
+		将teacher对象注入到course对象中
+		xxx.setTeacher(teacher);
+		<property name="teacher" ref="teacher"></property>
+	 -->
+	 <constructor-arg value="C语言"></constructor-arg>
+	 <constructor-arg value="200"></constructor-arg>
+	 <!-- 
+	 	 <constructor-arg ref="teacher"></constructor-arg>
+	  -->
+	  
+
+	</bean>
+
+	<bean id="javaCourse" class="org.spring.newinstance.LearnJava"/>
+	<bean id="htmlCourse" class="org.spring.newinstance.LearnHtml"/>
+	
+	<bean id="collectionDemo" class="org.spring.entity.AllCollectionType">
+		<!-- 通过set方式赋值 -->
+		<property name="list">
+			<list>
+				<value>足球</value>
+				<value>篮球</value>
+				<value>乒乓球</value>
+			</list>
+		</property>
+		<property name="array">
+			<array>
+				<value>足球1</value>
+				<value>篮球1</value>
+				<value>乒乓球1</value>
+			</array>
+		</property>
+		<property name="set">
+			<set>
+				<value>足球2</value>
+				<value>篮球2</value>
+				<value>乒乓球2</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry>
+					<key>
+						<value>football</value>	
+					</key>
+					<value>足球3</value>
+				</entry>
+				<entry>
+					<key>
+						<value>basketball</value>
+					</key>
+					<value>篮球3</value>
+				</entry>
+				<entry>
+					<key>
+						<value>pingpang</value>
+					</key>
+					<value>乒乓球3</value>
+				</entry>
+			</map>
+		</property>
+		<property name="pros">
+			<props>
+				<prop key="football4">足球4</prop>
+				<prop key="basketball4">篮球4</prop>
+				<prop key="pingpang4">乒乓球4</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>
