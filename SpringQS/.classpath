@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/lee/spring-beans-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/lee/spring-context-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/lee/spring-core-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/lee/spring-expression-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-aop-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-aspects-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-beans-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-context-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-context-indexer-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-context-support-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-core-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-expression-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-instrument-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-jcl-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-jdbc-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-jms-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-messaging-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-orm-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-oxm-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-test-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-tx-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-web-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-webflux-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-webmvc-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/spring-websocket-5.0.2.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
